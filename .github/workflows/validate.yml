@@ -1,0 +1,18 @@
+name: Validate plugin
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 scripts/validate.py
+      - name: Build and check example in Chromium
+        run: python3 skills/plan/scripts/build_board.py examples/python-basics/candidate.json examples/python-basics/notes.json .build/ci-demo
