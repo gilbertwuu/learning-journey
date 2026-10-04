@@ -1,24 +1,24 @@
 # Learning Journey
 
-把「我想学」变成有依据的学习路线，再一步步建立可检查的理解。
+Turn “I want to learn” into a learning path grounded in what you already know, then build understanding you can demonstrate, one step at a time.
 
-一个插件，三个 Skill：**Probe → Plan → Teach**。中文优先，也可以跟随学习者使用其他语言。适合已经有好奇的问题、实际目标，或想知道自己该从哪里开始的人。
+One plugin, three skills: **Probe → Plan → Teach**. Chinese is the default language, but the plugin can follow the learner's preferred language. It is designed for people with a question, a practical goal, or a need to find the right starting point.
 
-| Skill | 负责什么 | 交付什么 |
+| Skill | Purpose | Output |
 |---|---|---|
-| **Probe** | 从真实目标出发，通过具体任务定位知识边界 | 当前位置与各知识点状态；保留回答证据和提示影响 |
-| **Plan** | 把已有认识连接到目标能力 | 四部分学习计划、可交互的知识关系看板 |
-| **Teach** | 沿认可的路线逐步讲解与检查 | 图文问答笔记、局部进度、Probe 到 Teach 的前后对照 |
+| **Probe** | Start from a real goal and use concrete tasks to identify the boundaries of your knowledge | A starting-point assessment and the status of individual concepts, preserving answer evidence and the effect of hints |
+| **Plan** | Connect existing understanding to the target ability | A four-part learning plan and an interactive map of concept relationships |
+| **Teach** | Explain and check understanding step by step along the agreed path | Illustrated Q&A notes, progress on individual concepts, and a comparison with the original Probe |
 
-每次只提出一个中心问题。听过术语、看完解释、当场答对、延迟还能使用、现实行为改变，是不同的证据。插件不以完成百分比或自信评分代替理解，也不承诺学完理论就解决个人问题。
+Each turn focuses on one central question. Recognizing a term, reading an explanation, answering correctly immediately, using knowledge after a delay, and changing real-world behavior are different kinds of evidence. The plugin does not substitute completion percentages or confidence scores for understanding, or promise that learning theory will solve personal problems.
 
-## 安装
+## Installation
 
-需要支持 Skills/插件的 AI 宿主。本仓库提供 Codex 和 Claude Code 的插件与 marketplace 清单，同时包含标准 Agent Plugins 根清单。发布到 GitHub 不等于被官方插件目录收录。
+An AI host that supports skills or plugins is required. This repository includes plugin and marketplace manifests for Codex and Claude Code, plus a standard Agent Plugins root manifest. Publication on GitHub does not mean inclusion in an official plugin directory.
 
 ### Codex App
 
-在 Plugins 中选择 **Add marketplace**，来源填写 `gilbertwuu/learning-journey`，Git ref 选择 `main`，Sparse paths 留空。添加后安装 **Learning Journey**，再开启新对话。不同版本的入口文字可能不同。
+In Plugins, choose **Add marketplace**, enter `gilbertwuu/learning-journey` as the source, set Git ref to `main`, and leave Sparse paths empty. Then install **Learning Journey** and start a new conversation. Interface labels may vary by version.
 
 ### Codex CLI
 
@@ -34,54 +34,54 @@ codex plugin add learning-journey@learning-journey-marketplace
 /plugin install learning-journey@learning-journey-marketplace
 ```
 
-### 从本地源码试用
+### Try the local source
 
-在仓库根目录运行：
+Run from the repository root:
 
 ```bash
 codex plugin marketplace add .
 codex plugin add learning-journey@learning-journey-marketplace
 ```
 
-若原来已独立安装同名 `probe`、`plan` 或 `teach`，请在宿主的 Skill 选择器里选择本插件下的入口，避免误选。尤其 `plan` 是**学习计划**，不是软件实施计划。
+If you already have standalone skills named `probe`, `plan`, or `teach`, select the entries belonging to this plugin in your host's skill picker. In particular, `plan` creates a **learning plan**, not a software implementation plan.
 
-## 开始学习
+## Start learning
 
-在 Codex 中分别使用下面的提示；Claude Code 可从插件的 Skill/命令选择器选择同名入口。
-
-```text
-$probe 我想学统计学，主要想读懂产品实验的结果，请帮我定位学习起点。
-```
-
-Probe 会先补齐影响范围的背景，再根据实际回答定位。已有目标和回答会沿用，不要求你先给自己打分。
+Use the following prompts in Codex. In Claude Code, select the corresponding entries from the plugin's skill or command picker.
 
 ```text
-$plan 基于刚才的 Probe，为我制定学习路线。
+$probe I want to learn statistics so I can understand product experiment results. Help me find my starting point.
 ```
 
-Plan 给出学习终点与起点、关系看板、每段学习深度和第一段边界。蓝色是需要学习，灰色是已有相关认识；灰色不代表整章掌握。
+Probe first clarifies any background that affects the scope, then identifies your starting point from your actual answers. It reuses existing goals and responses rather than asking you to rate yourself.
 
 ```text
-$teach 沿这份 Plan 开始学习。
+$plan Build a learning path based on the Probe we just completed.
 ```
 
-Teach 每次讲清一个关系，再用一个问题检查。继续学习时直接说“继续”，并提供原来的计划或笔记即可。首次路线完成后，对照 Probe 总结具体变化，并根据你的目标给出明确的下一步。
+Plan defines the destination and starting point, maps concept relationships, specifies the depth of each stage, and sets the boundaries of the first stage. Blue indicates material to learn; gray indicates relevant prior understanding, not mastery of an entire chapter.
 
-三个阶段也能单独使用；缺少上一步证据时，会先补必要信息，不编造起点。显式要求仅做 Probe 或 Plan 时，阶段结束后不会擅自进入下一阶段。
+```text
+$teach Start teaching me along this Plan.
+```
 
-## 学习笔记
+Teach explains one relationship at a time, then checks it with one question. To resume, say “continue” and provide the previous plan or notes. After the first pass through the path, it compares your progress with the original Probe and gives you a concrete next step tied to your goal.
 
-Teach 默认询问一次：使用现有 Obsidian 知识库，还是独立学习库？每个待学知识点一篇 Markdown 笔记，持续保留讲解、图片、问题、原始回答及反馈。一个计划页记录当前路线和首次学习总结。
+Each stage can also be used independently. If evidence from an earlier stage is missing, the plugin gathers the necessary information rather than inventing a starting point. If you explicitly request only Probe or Plan, it will not move to the next stage on its own.
 
-独立库与既有库分开；没有已知库位置时，默认放在用户文档目录。你可以指定其他位置或要求只在聊天里学习。没有文件写入权限时会提供可导出的 Markdown，不会声称已经保存。Obsidian 只是推荐阅读器，不需要付费同步或专用连接器。
+## Learning notes
 
-不要把自己的学习库、原始对话或个人评估提交到本插件仓库。仓库中的 Python 示例完全虚构。
+By default, Teach asks once whether to use an existing Obsidian vault or a separate learning vault. Each concept to be learned gets a Markdown note that preserves explanations, images, questions, original answers, and feedback. A plan page records the current path and the first-pass summary.
 
-## 交互式学习看板
+A separate vault stays separate from any existing vault. If no location is known, it defaults to the user's documents directory. You can specify another location or ask to learn only in chat. Without file-writing access, the plugin provides exportable Markdown instead of claiming that notes have been saved. Obsidian is a suggested reader; paid sync and dedicated connectors are not required.
 
-Plan 内置固定版本的 Archify 渲染器，无需另装 Archify Skill 或 npm 依赖。生成和完整校验需要 **Python 3.10+、Node.js 18+、Chrome/Chromium**。讲解与 Probe 不需要这些运行环境。
+Do not commit your personal learning vault, original conversations, or individual assessments to this plugin repository. The Python example in this repository is entirely fictional.
 
-在仓库根目录生成公开示例：
+## Interactive learning board
+
+Plan bundles a fixed version of the Archify renderer. No separate Archify skill or npm dependencies are needed. Generation and full validation require **Python 3.10+, Node.js 18+, and Chrome/Chromium**. Explanations and Probe do not require these runtimes.
+
+Generate the public example from the repository root:
 
 ```bash
 python3 skills/plan/scripts/build_board.py \
@@ -90,35 +90,35 @@ python3 skills/plan/scripts/build_board.py \
   .build/python-demo
 ```
 
-打开 `.build/python-demo/board.html`。支持深浅主题、分段聚焦、返回全图、节点详情和连线演示。生成目录必须不存在，以保护已经交付的版本；修复同一版本的方法见 [看板文档](skills/plan/references/board.md)。
+Open `.build/python-demo/board.html`. The board supports light and dark themes, stage focus, returning to the full map, node details, and connection demonstrations. The output directory must not already exist, to protect previously delivered versions. See the [board documentation](skills/plan/references/board.md) for instructions on repairing an existing version.
 
-缺少运行环境时可以先交付文字路线和明确标记的草稿。只有构建退出码为 0、校验回执通过时，才算自动检查通过；人工目视检查和实际教学效果另行验证。插件不会自动安装运行环境。
+If the runtime requirements are missing, the plugin can provide a text learning path and a clearly labeled draft. Automated checks count as passed only when the build exits with code 0 and the validation receipt confirms success. Visual review and actual teaching effectiveness require separate verification. The plugin does not automatically install runtimes.
 
-## 维护与验证
+## Maintenance and validation
 
 ```bash
 python3 scripts/validate.py
 ```
 
-该命令检查清单一致性、三个 Skill、相对文档链接、公开包中的本机路径、示例和渲染器完整性。看板构建另跑上面的示例命令。行为验收场景见 [docs/acceptance.md](docs/acceptance.md)。结构与浏览器检查通过不表示教学效果已经经过对照研究验证。
+This command checks manifest consistency, the three skills, relative documentation links, local machine paths in the public package, examples, and renderer integrity. Run the example command above separately to build and check the board. Behavioral acceptance scenarios are in [docs/acceptance.md](docs/acceptance.md). Passing structural and browser checks does not mean teaching effectiveness has been validated in a controlled study.
 
-源码组织：
+Source layout:
 
 ```text
-plugin.json                     标准插件清单
-.codex-plugin/plugin.json       Codex 兼容清单
-.claude-plugin/                 Claude Code 清单与 marketplace
+plugin.json                      Standard plugin manifest
+.codex-plugin/plugin.json        Codex compatibility manifest
+.claude-plugin/                  Claude Code manifests and marketplace
 .agents/plugins/marketplace.json Codex marketplace
-skills/probe/                   起点与边界探查
-skills/plan/                    路线、看板适配器与内置渲染器
-skills/teach/                   教学、问答笔记与阶段对照
-examples/python-basics/         虚构公开示例
+skills/probe/                    Starting-point and knowledge-boundary assessment
+skills/plan/                     Learning paths, board adapter, and bundled renderer
+skills/teach/                    Teaching, Q&A notes, and stage comparisons
+examples/python-basics/          Fictional public example
 ```
 
-欢迎通过 Issue 提供可复现的问题：使用哪个 Skill、希望发生什么、实际发生什么。请用虚构或匿名内容复现，不上传真实私人学习记录。
+Issues with reproducible examples are welcome. Include the skill used, the expected behavior, and what actually happened. Use fictional or anonymized content rather than private learning records.
 
-## 许可与致谢
+## License and acknowledgments
 
-本插件原创内容采用 MIT 许可。看板使用 [Archify](https://github.com/tt-a1i/archify) 3.0.1，保留其许可证和第三方声明，具体见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。打包形式参考 [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin)，不包含其源码，也不代表双方有从属或合作关系。
+Original content in this plugin is licensed under MIT. The board uses [Archify](https://github.com/tt-a1i/archify) 3.0.1 and retains its license and third-party notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The packaging approach was inspired by [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin). This repository does not include its source code or imply any affiliation or partnership.
 
-插件格式与安装方式参考 [OpenAI 插件文档](https://developers.openai.com/plugins/build/plugins)。
+Plugin format and installation instructions reference the [OpenAI plugin documentation](https://developers.openai.com/plugins/build/plugins).
