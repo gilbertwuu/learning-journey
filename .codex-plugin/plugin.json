@@ -1,0 +1,36 @@
+{
+  "name": "learning-journey",
+  "version": "0.1.0",
+  "description": "用 Probe、Plan、Teach 从学习起点走到可验证的理解。",
+  "author": {
+    "name": "gilbertwuu"
+  },
+  "repository": "https://github.com/gilbertwuu/learning-journey",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "education",
+    "probe",
+    "plan",
+    "teach"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Learning Journey",
+    "shortDescription": "探查起点、规划路线、逐步教学与验证",
+    "longDescription": "三个相互衔接的 Skill：Probe 根据回答定位起点，Plan 建立有依据的学习路线与交互看板，Teach 逐步讲解、检查理解并保存可复习的笔记。",
+    "developerName": "gilbertwuu",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/gilbertwuu/learning-journey",
+    "defaultPrompt": [
+      "我想学习一个主题，请先帮我找到学习起点。",
+      "根据已有 Probe 为我制定学习路线。",
+      "沿着已确认的 Plan 开始 Teach。"
+    ]
+  }
+}

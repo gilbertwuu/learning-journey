@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Python 学习路线 · 虚构示例",
+    "subtitle": "演示格式，不代表真实学习者状态或完整课程",
+    "locale": "zh-CN",
+    "output": "board.html",
+    "views": [
+      {
+        "id": "values-view",
+        "label": "一 · 从算式到变量",
+        "focus": [
+          "arithmetic",
+          "variables"
+        ],
+        "note": "虚构示例：点击节点查看证据；返回全图查看关系。"
+      },
+      {
+        "id": "branch-view",
+        "label": "二 · 条件与分支",
+        "focus": [
+          "boolean",
+          "condition"
+        ],
+        "note": "虚构示例：点击节点查看证据；返回全图查看关系。"
+      },
+      {
+        "id": "loop-view",
+        "label": "三 · 重复与小程序",
+        "focus": [
+          "iteration",
+          "program"
+        ],
+        "note": "虚构示例：点击节点查看证据；返回全图查看关系。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "values",
+      "label": "一 · 从算式到变量"
+    },
+    {
+      "id": "branch",
+      "label": "二 · 条件与分支"
+    },
+    {
+      "id": "loop",
+      "label": "三 · 重复与小程序"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "arithmetic",
+      "lane": "values",
+      "col": 0,
+      "type": "external",
+      "label": "算式求值",
+      "sublabel": "示例中已有的局部认识",
+      "width": 172,
+      "height": 68,
+      "icon": "none"
+    },
+    {
+      "id": "variables",
+      "lane": "values",
+      "col": 1,
+      "type": "frontend",
+      "label": "变量与赋值",
+      "sublabel": "跟踪值如何改变",
+      "width": 172,
+      "height": 68,
+      "icon": "none"
+    },
+    {
+      "id": "boolean",
+      "lane": "branch",
+      "col": 1,
+      "type": "frontend",
+      "label": "比较与布尔值",
+      "sublabel": "判断条件真假",
+      "width": 172,
+      "height": 68,
+      "icon": "none"
+    },
+    {
+      "id": "condition",
+      "lane": "branch",
+      "col": 2,
+      "type": "frontend",
+      "label": "条件分支",
+      "sublabel": "按条件选择路径",
+      "width": 172,
+      "height": 68,
+      "icon": "none"
+    },
+    {
+      "id": "iteration",
+      "lane": "loop",
+      "col": 2,
+      "type": "frontend",
+      "label": "循环与累积",
+      "sublabel": "逐轮更新状态",
+      "width": 172,
+      "height": 68,
+      "icon": "none"
+    },
+    {
+      "id": "program",
+      "lane": "loop",
+      "col": 3,
+      "type": "frontend",
+      "label": "组合小程序",
+      "sublabel": "解释并修改执行过程",
+      "width": 172,
+      "height": 68,
+      "icon": "none"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "arithmetic",
+      "to": "variables",
+      "label": "帮助理解值",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e1",
+      "from": "variables",
+      "to": "boolean",
+      "label": "前提：读取当前值",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e2",
+      "from": "boolean",
+      "to": "condition",
+      "label": "前提：条件真假",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e3",
+      "from": "condition",
+      "to": "iteration",
+      "label": "教学衔接",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e4",
+      "from": "iteration",
+      "to": "program",
+      "label": "整合与应用",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": []
+}

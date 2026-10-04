@@ -1,0 +1,4 @@
+interface:
+  display_name: "Probe · 学习起点探查"
+  short_description: "通过具体任务逐步定位学习起点，分别呈现当前位置、理解边界与知识点状态"
+  default_prompt: "请使用 $probe，根据我的学习目标，通过具体任务和逐步追问定位已有基础与理解边界，最后分别呈现当前位置和各知识点状态，仅进行 Probe。"

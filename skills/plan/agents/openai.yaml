@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan · 学习计划"
+  short_description: "承接理解边界，制定有依据的学习路线，配合阶段看板明确知识连接与学习深度"
+  default_prompt: "请使用 $plan，基于我的学习目标和已有 Probe 结果，输出四部分学习计划与阶段知识关系看板。"

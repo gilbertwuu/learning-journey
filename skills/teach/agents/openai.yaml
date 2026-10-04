@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teach · 逐步教学"
+  short_description: "沿学习路线讲解、检查理解并保存图文问答，对照学习前后的具体变化"
+  default_prompt: "请使用 $teach，沿已确认的 Plan 逐步讲解，每次检查一个关系，并记录实际表现。"

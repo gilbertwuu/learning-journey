@@ -1,0 +1,11 @@
+#focus-kind,#focus-id,#focus-tag,#focus-reach,#focus-detail,#focus-summary {display:none!important}
+/* Reserve action space only beside the title, not beside the full description. */
+#focus-chip .relationship-lens-head {grid-template-columns:minmax(0,1fr);}
+#focus-chip .relationship-lens-copy {width:100%;min-width:0;}
+#focus-chip .relationship-lens-actions {position:absolute;top:.9rem;right:.75rem;}
+#focus-chip .relationship-lens-eyebrow,
+#focus-chip .relationship-lens-title {padding-right:6rem;}
+#learning-description {font-family:system-ui,sans-serif;font-size:13px;font-weight:400;line-height:1.65;width:100%;max-width:none;box-sizing:border-box;margin:20px 0 12px;overflow-wrap:anywhere;}
+#learning-description h4 {font-size:12px;font-weight:500;color:var(--text-primary);margin:10px 0 3px;}
+#learning-description p {font-size:inherit;font-weight:400;margin:0;color:var(--text-secondary);white-space:normal;}
+#learning-description .learning-level {font-weight:500;color:var(--backend-stroke);}

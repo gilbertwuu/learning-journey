@@ -1,0 +1,17 @@
+{
+  "name": "learning-journey",
+  "version": "0.1.0",
+  "description": "用 Probe、Plan、Teach 从学习起点走到可验证的理解。",
+  "author": {
+    "name": "gilbertwuu"
+  },
+  "repository": "https://github.com/gilbertwuu/learning-journey",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "education",
+    "probe",
+    "plan",
+    "teach"
+  ]
+}

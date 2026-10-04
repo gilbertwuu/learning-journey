@@ -1,0 +1,13 @@
+{
+  "name": "learning-journey-marketplace",
+  "owner": {
+    "name": "gilbertwuu"
+  },
+  "plugins": [
+    {
+      "name": "learning-journey",
+      "source": "./",
+      "description": "用 Probe、Plan、Teach 从学习起点走到可验证的理解。"
+    }
+  ]
+}
